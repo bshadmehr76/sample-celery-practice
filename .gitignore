@@ -48,3 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Celery
+celerybeat-schedule*
+
+# Custom csv for db
+*.csv.db
