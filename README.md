@@ -1,29 +1,23 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This documentation explains about celery
+I have implemented two simple use case
 
-### What is this repository for? ###
+### use case 1: ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* user calls an api
+* api calls a task that generates a pdf
+* we store the task id
+* user can check pdf generation status using another route
 
-### How do I get set up? ###
+### use case 2: ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* we use celery beat to check our ping
+* we store the ping and it's status in db
+* user can check the ping hostory using an api
 
-### Contribution guidelines ###
+### requirements ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* install requirements modules
+* install and run redis, you can achieve this by docker: docker run -d -p 6379:6379 redis
+* run celery and celery beat via celery -A tasks worker -l INFO, celery -A tasks beat -l INFO
